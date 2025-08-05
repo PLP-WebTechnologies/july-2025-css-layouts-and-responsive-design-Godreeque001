@@ -1,0 +1,108 @@
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Grid layout for entire page */
+    .container {
+      display: grid;
+      grid-template-areas:
+        "header header"
+        "nav nav"
+        "content sidebar"
+        "footer footer";
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    header {
+      grid-area: header;
+      background-color:#040fac;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      grid-area: nav;
+      display: flex; /* Flexbox used for horizontal nav */
+      justify-content: center;
+      background-color: #a5d6a7;
+      padding: 10px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+    }
+
+    .content {
+      grid-area: content;
+    }
+
+    .sidebar {
+      grid-area: sidebar;
+      background-color: #f0f0f0;
+      padding: 15px;
+    }
+
+    footer {
+      grid-area: footer;
+      background-color: #040fac;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+
+    /* Flexbox used for card layout inside content */
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .card {
+      background: #e0f2f1;
+      border: 1px solid #ccc;
+      padding: 15px;
+      flex: 1 1 250px;
+    }
+
+    /* Responsive breakpoints */
+    @media (max-width: 768px) {
+      .container {
+        grid-template-areas:
+          "header"
+          "nav"
+          "content"
+          "sidebar"
+          "footer";
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cards {
+        flex-direction: column;
+      }
+
+      .card {
+        flex: 1 1 100%;
+      }
+    }
+  
